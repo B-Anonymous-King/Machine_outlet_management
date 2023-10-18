@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CISF Dashboard</title>
+  <style>
+    body {
+      background-color: #f1f1f1;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .header {
+      background-color: #00b894;
+      padding: 20px;
+      color: white;
+    }
+    
+    .container {
+      max-width: 960px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar {
+      background-color: #55efc4;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+    
+    .content {
+      background-color: white;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>CISF Dashboard</h1>
+    <p>Employee ID: <span id="employeeId">12345</span></p>
+  </div>
+
+  <div class="container">
+    <div class="navbar">
+      <a href="#" onclick="showContent('enterMachineOut')">Enter Machine Out</a>
+      <a href="#" onclick="showContent('letMachineIn')">Let Machine In</a>
+      <a href="#" onclick="showContent('logout')">Logout</a>
+    </div>
+
+    <div class="content" id="enterMachineOut">
+      <h2>Enter Machine Out</h2>
+      <!-- Enter machine out content here -->
+    </div>
+
+    <div class="content" id="letMachineIn">
+      <h2>Let Machine In</h2>
+      <!-- Let machine in content here -->
+    </div>
+
+    <div class="content" id="logout">
+      <h2>Logout</h2>
+      <!-- Logout content here -->
+    </div>
+  </div>
+
+  <script>
+    // Function to show/hide content based on button click
+    function showContent(contentId) {
+      // Hide all content
+      var contents = document.getElementsByClassName("content");
+      for (var i = 0; i < contents.length; i++) {
+        contents[i].style.display = "none";
+      }
+      
+      // Show selected content
+      document.getElementById(contentId).style.display = "block";
+    }
+    showContent('enterMachineOut');
+  </script>
+</body>
+</html>

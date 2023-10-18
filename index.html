@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Form</title>
+  <style>
+    body {
+      background-color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      
+    }
+    .xyz
+    {
+        background-image: url("logo.jpg");
+        background-repeat: no-repeat;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    
+    .container h2 {
+      text-align: center;
+      color: #333;
+    }
+    
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .form-group input[type="text"],
+    .form-group input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+    }
+    .form-group input[type="submit"] {
+      background-color: #55efc4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn-container {
+      text-align: center;
+    }
+    
+    .btn-container button {
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    
+    .btn-container button.signup-btn {
+      background-color: #333;
+      margin-left: 10px;
+    }
+    #carousel-container {
+    width: 100%;
+    position: relative;
+    height: 400px; /* Set the height of your carousel container */
+  }
+  
+  .carousel-img {
+    width: 100%;
+    height: 300px;
+    position: absolute; /* Change position to absolute */
+    top: 0; /* Position from top */
+    left: 0; /* Position from left */
+    opacity: 0; /* Hide all images by default */
+    transition: opacity 1s ease-in-out; /* Add transition effect */
+  }
+  
+  .carousel-img.active {
+    opacity: 1; /* Show active image */
+  }
+  </style>
+</head>
+<body>
+    <div id="carousel-container">
+        <!-- Add your carousel images as child elements -->
+        <img src="img1.jpg" alt="Image 1" class="carousel-img">
+        <img src="img2.jpg" class="carousel-img">
+        <img src="img3.jpg" alt="Image 3" class="carousel-img">
+    </div>
+    <div class="xyz">
+  <div class="container">
+
+    <h2>Login Form</h2>
+    <center><form action="login.jsp" method="post">
+      <div class="form-group">
+        <label for="employee-number">Employee Number</label>
+        <input type="text" id="employee-number" name="employee-number" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div class="btn-container">
+        <button type="submit">Login</button>
+        <button type="button" class="signup-btn">Signup</button>
+      </div>
+    </form></center>
+  </div>
+</div>
+  <script>
+    // Add JavaScript code to show/hide content based on selected button
+    const navLinks = document.querySelectorAll('nav ul li a');
+    const contentDivs = document.querySelectorAll('.container div');
+
+    navLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const selectedLink = e.target;
+            const selectedDiv = document.querySelector(selectedLink.hash);
+
+            // Hide all content divs and remove active class from all nav links
+            contentDivs.forEach((div) => {
+                div.style.display = 'none';
+            });
+            navLinks.forEach((link) => {
+                link.classList.remove('active');
+            });
+
+            // Show selected content div and add active class to selected nav link
+            selectedDiv.style.display = 'block';
+            selectedLink.classList.add('active');
+        });
+    });
+    var images = document.getElementsByClassName("carousel-img");
+var currentIndex = 0;
+
+function changeImage() {
+// Hide current image
+images[currentIndex].style.opacity = "0";
+
+// Update current index
+currentIndex = (currentIndex + 1) % images.length;
+
+// Show next image after a delay
+setTimeout(function() {
+images[currentIndex].style.opacity = "1";
+}, 1000); // Change image after 1 second
+
+// Call the function again after a fixed time interval
+setTimeout(changeImage, 5000); // Change image every 5 seconds
+}
+
+// Call the function to start the image slider
+changeImage();
+</script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HOD Dashboard</title>
+  <style>
+   body {
+      background-color: #f1f1f1;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .header {
+      background-color: #00b894;
+      padding: 20px;
+      color: white;
+    }
+    
+    .container {
+      max-width: 960px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar {
+      background-color: #55efc4;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+    
+    .content {
+      background-color: white;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+    }
+    
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    input[type="submit"] {
+      background-color: #55efc4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+    
+    input[type="submit"]:hover {
+      background-color: #00b894;
+    }
+    .button {
+      background-color: #55efc4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .button:hover {
+      background-color: #00b894;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>HOD Dashboard</h1>
+    <p>Employee ID: <span id="employeeId">12345</span></p>
+  </div>
+
+  <div class="container">
+    <div class="navbar">
+      <a href="#" onclick="showContent('addEmployee')">Add Employee</a>
+      <a href="#"   onclick="showContent('addMachine')">Add Machine</a>
+      <a href="#"   onclick="showContent('addSubMachine')">Add Sub-Machine</a>
+      <a href="#"   onclick="showContent('acceptGatePass')">Accept Gate Pass</a>
+      <a href="#" onclick="showContent('logout')">Logout</a>
+    </div>
+
+    <div class="content" id="addEmployee">
+      
+      
+        <h2>Add Employee</h2>
+        <form>
+          <div class="form-group">
+            <label for="name">Employee Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="designation">Designation</label>
+            <input type="text" id="designation" name="designation" required>
+          </div>
+          <div class="form-group">
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required>
+          </div>
+          <input type="submit" value="add"/>
+        </form>
+    
+      <!-- Add employee content here -->
+    </div>
+
+    <div class="content" id="addMachine">
+      <h2>Add Machine</h2>
+      <!-- Add machine content here -->
+    </div>
+
+    <div class="content" id="addSubMachine">
+      <h2>Add Sub-Machine</h2>
+      <!-- Add sub-machine content here -->
+    </div>
+
+    <div class="content" id="acceptGatePass">
+      <h2>Accept Gate Pass</h2>
+      <!-- Accept gate pass content here -->
+    </div>
+    <div class="content" id="logout">
+      <h2>Logout</h2>
+      <!-- Logout content here -->
+    </div>
+  </div>
+
+  <script>
+    // Function to show/hide content based on button click
+    function showContent(contentId) {
+      // Hide all content
+      var contents = document.getElementsByClassName("content");
+      for (var i = 0; i < contents.length; i++) {
+        contents[i].style.display = "none";
+      }
+      
+      // Show selected content
+      document.getElementById(contentId).style.display = "block";
+    }
+    showContent('addEmployee');
+  </script>
+</body>
+</html>
