@@ -1,2 +1,2 @@
-# ubiquitous-carnival
-Machine outlet
+# Machine outlet permission management system
+
